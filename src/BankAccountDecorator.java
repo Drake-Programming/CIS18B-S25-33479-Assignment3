@@ -6,5 +6,3 @@ public class BankAccountDecorator extends BankAccount {
         this.decoratedAccount = account;
     }
 }
-
-// TODO: Implement SecureBankAccount (Concrete Decorator)

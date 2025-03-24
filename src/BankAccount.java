@@ -5,11 +5,11 @@ import java.util.List;
  * Represents a bank account with basic operations like deposit, withdrawal, and closing account.
  * Incorporates observer pattern to notify registered observers upon any state changes or account operations.
  */
-public class BankAccount {
+public class BankAccount implements ISubject, IAccount {
     protected String accountNumber;
     protected double balance;
     protected boolean isActive;
-    private List<Observer> observers = new ArrayList<>();
+    private List<IObserver> observers = new ArrayList<>();
 
     /**
      * Constructs a new BankAccount instance.
@@ -26,10 +26,14 @@ public class BankAccount {
     /**
      * Registers an observer to receive notifications of account changes.
      *
-     * @param observer an observer instance implementing the Observer interface.
+     * @param o an observer instance implementing the Observer interface.
      */
-    public void addObserver(Observer observer) {
-        observers.add(observer);
+    public void registerObserver(IObserver o) {
+        observers.add(o);
+    }
+
+    public void removeObserver(IObserver o) {
+        observers.remove(o);
     }
 
     /**
@@ -37,8 +41,8 @@ public class BankAccount {
      *
      * @param message the notification message to be sent to observers.
      */
-    private void notifyObservers(String message) {
-        for (Observer observer : observers) {
+    public void notifyObservers(String message) {
+        for (IObserver observer : observers) {
             observer.update(message);
         }
     }
@@ -60,7 +64,7 @@ public class BankAccount {
         }
 
         this.balance += amount;
-        notifyObservers("Account " + this.accountNumber + " deposited: $" + amount);
+        notifyObservers("Account " + this.accountNumber + " deposited: $" + amount + "\nNew Balance: " + this.balance);
     }
 
     /**
@@ -80,7 +84,7 @@ public class BankAccount {
         }
 
         this.balance -= amount;
-        notifyObservers("Account " + this.accountNumber + " withdrew: $" + amount);
+        notifyObservers("Account " + this.accountNumber + " withdrew: $" + amount + "\nNew Balance: " + this.balance);
     }
 
     /**
