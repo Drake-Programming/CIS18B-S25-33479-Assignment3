@@ -58,12 +58,12 @@ src/
 The entry point of the application is the BankAccountTest.java file.
 
 ### Expected Output
-Account Creation: Prompts for account number and initial balance.
-Menu:
-Deposit: Prompts for deposit amount and updates balance.
-Withdraw: Prompts for withdrawal amount, checks limits, and updates balance if valid.
-Exit: Terminates the application.
-Transaction Logging: Every valid deposit or withdrawal is logged via the TransactionLogger (observer).
+- **Account Creation** Prompts for account number and initial balance.
+- **Menu**
+- ***Deposit*** Prompts for deposit amount and updates balance.
+- ***Withdraw*** Prompts for withdrawal amount, checks limits, and updates balance if valid.
+- ***Exit*** Terminates the application.
+- **Transaction Logging** Every valid deposit or withdrawal is logged via the TransactionLogger (observer).
 
 ---
 
