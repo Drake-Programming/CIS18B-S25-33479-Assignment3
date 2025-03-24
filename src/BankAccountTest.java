@@ -21,6 +21,7 @@ public class BankAccountTest {
             };
         } catch (java.util.InputMismatchException ime) {
             System.out.println("\nInput only numeric values\n");
+            scanner.nextLine();
             account = new BankAccount("12345", 0);
         }
         System.out.println("Bank Account Created: " + account.accountNumber);
@@ -39,6 +40,7 @@ public class BankAccountTest {
                             amount = scanner.nextDouble();
                         } catch (java.util.InputMismatchException ime) {
                             System.out.println("\nInput only numeric values\n");
+                            scanner.nextLine();
                         }
                         secureAccount.deposit(amount);
                         break;
@@ -48,6 +50,7 @@ public class BankAccountTest {
                             amount = scanner.nextDouble();
                         } catch (java.util.InputMismatchException ime) {
                             System.out.println("\nInput only numeric values\n");
+                            scanner.nextLine();
                         }
                         secureAccount.withdraw(amount);
                         break;
@@ -60,6 +63,7 @@ public class BankAccountTest {
 
         } catch (java.util.InputMismatchException ime) {
             System.out.println("\nInput only numeric values\n");
+            scanner.nextLine();
         } finally {
             scanner.close();
         }

@@ -32,6 +32,10 @@ public class BankAccount implements ISubject, IAccount {
         observers.add(o);
     }
 
+    /**\
+     * Removes an observer
+     * @param o
+     */
     public void removeObserver(IObserver o) {
         observers.remove(o);
     }
